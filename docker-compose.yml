@@ -1,0 +1,15 @@
+services:
+  server:
+    build:
+      context: .
+      args:
+        SERVER_JAR: paper-1.21.4-230.jar
+        MEMORY: "4G"
+    container_name: daydream/minecraft-server
+    ports:
+      - "4204:4204"
+      - "25565:25565"
+    volumes:
+      - ${PWD}/data/plugins:/server/plugins
+      - ${PWD}/data/logs:/server/logs
+      - ${PWD}/data/config:/server/config
